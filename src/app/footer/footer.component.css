@@ -1,0 +1,24 @@
+.main-footer{
+    background-color: #E78200;
+    opacity: 0.85;
+    width: 100%;
+    z-index: 9;
+    color: white; 
+    display: flex;
+}
+
+.footer-links{
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.nav-item{
+    color: white;
+    font-family: Gotham;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    font-size: larger;
+}

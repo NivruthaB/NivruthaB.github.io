@@ -1,0 +1,27 @@
+::ng-deep .mat-tab-header{
+    border-bottom: 0px !important;
+}
+
+.main-header{
+    background-color: white;
+    opacity: 0.85;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content:space-between;
+    align-items: flex-start;
+    /* margin-bottom: 50px; */
+    position: fixed;
+    overflow: hidden;
+    z-index: 9;
+    color: black;  
+}
+
+.main-nav-bar{
+    padding-top: 70px;
+    padding-right: 40px;
+}
+
+.main-logo{
+    padding-left: 40px;
+}

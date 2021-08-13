@@ -18,7 +18,8 @@ import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { NavbarModule, ButtonsModule, IconsModule } from 'angular-bootstrap-md'
+import { NavbarModule, ButtonsModule, IconsModule } from 'angular-bootstrap-md';
+import { SearchFilterPipe } from './search-filter.pipe'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NavbarModule, ButtonsModule, IconsModule } from 'angular-bootstrap-md'
     AboutMeComponent,
     MenuComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,

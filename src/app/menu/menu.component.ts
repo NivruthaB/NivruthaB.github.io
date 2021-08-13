@@ -47,12 +47,11 @@ export class MenuComponent implements OnInit {
     this.itemsInCart.push(
       {name : menuitem.name,
       quantity: (currentItem != null && currentItem.length > 0 ) ? currentItem[0].quantity + 1 : 1})
-      console.log(this.itemsInCart)
     }
     else{
-
+      currentItem[0].quantity += 1
     }
-        
+    console.log(this.itemsInCart)
   }
 
   decrementQuantity(menuitem:any){

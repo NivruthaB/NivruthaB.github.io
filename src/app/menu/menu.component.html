@@ -3,7 +3,7 @@
     OUR MENU
 </div>
 <div class="main">    
-      <cdk-accordion class="example-accordion">
+      <cdk-accordion class="example-accordion" multi> 
       <cdk-accordion-item
       *ngFor="let item of items; let index = index;"
       #accordionItem="cdkAccordionItem"
@@ -31,8 +31,10 @@
             <div class="quantity-input-icon">  
               <span class="material-icons" (click)="decrementQuantity(menuitem)">
               remove
-              </span>0
-              <!-- {{itemsInCart[menuitem]}} -->
+              </span>
+              <!-- <span *ngIf="itemsInCart.length > 0">{{itemsInCart | searchFilter : menuitem}}</span>
+              <span *ngIf="itemsInCart.length == 0">0</span> -->
+              {{itemsInCart | searchFilter : menuitem}}
               <span class="material-icons" (click)="incrementQuantity(menuitem)">
                 add
               </span>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -37,6 +38,8 @@ export class MenuComponent implements OnInit {
   expandedIndex = 0;
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   itemsInCart :any[]= [];
+  @Output() myClick = new EventEmitter();
+  eventsSubject: Subject<void> = new Subject<void>();
   constructor(private http : HttpClient){}
 
   ngOnInit(): void {
@@ -51,7 +54,7 @@ export class MenuComponent implements OnInit {
     else{
       currentItem[0].quantity += 1
     }
-    console.log(this.itemsInCart)
+    
   }
 
   decrementQuantity(menuitem:any){

@@ -20,6 +20,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarModule, ButtonsModule, IconsModule } from 'angular-bootstrap-md';
 import { SearchFilterPipe } from './search-filter.pipe'
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { SearchFilterPipe } from './search-filter.pipe'
     MatFormFieldModule,
     NavbarModule,
     ButtonsModule,
-    IconsModule
+    IconsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

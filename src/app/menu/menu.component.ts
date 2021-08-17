@@ -54,10 +54,20 @@ export class MenuComponent implements OnInit {
     else{
       currentItem[0].quantity += 1
     }
-    
+
   }
 
   decrementQuantity(menuitem:any){
-    this.itemsInCart.filter(item => (item != menuitem))
+    console.log(this.itemsInCart)
+    let currentItem = this.itemsInCart.filter(item => (item.name == menuitem.name))
+    console.log(currentItem[0].quantity)
+    if(currentItem.length != 0 && currentItem[0].quantity >= 2){
+      currentItem[0].quantity -= 1
+      console.log(this.itemsInCart)
+    }
+    else if(currentItem.length != 0 && currentItem[0].quantity == 1){
+      this.itemsInCart = this.itemsInCart.filter(item => (item.name != menuitem.name))
+      console.log(this.itemsInCart)
+    }
   }
 }

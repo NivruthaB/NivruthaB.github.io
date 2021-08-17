@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
+import { DashboardServiceService } from '../dashboard-service.service';
 
 @Component({
   selector: 'app-menu',
@@ -38,12 +39,11 @@ export class MenuComponent implements OnInit {
   expandedIndex = 0;
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   itemsInCart :any[]= [];
-  @Output() myClick = new EventEmitter();
-  eventsSubject: Subject<void> = new Subject<void>();
-  constructor(private http : HttpClient){}
+  constructor(private http : HttpClient, private dashboardService : DashboardServiceService){}
 
   ngOnInit(): void {
   }
+
   incrementQuantity(menuitem:any){
     let currentItem = this.itemsInCart.filter(item => (item.name == menuitem.name))
     if(currentItem.length == 0){
@@ -54,20 +54,17 @@ export class MenuComponent implements OnInit {
     else{
       currentItem[0].quantity += 1
     }
-
+    this.dashboardService.setItemsInCart(this.itemsInCart)
   }
 
   decrementQuantity(menuitem:any){
-    console.log(this.itemsInCart)
     let currentItem = this.itemsInCart.filter(item => (item.name == menuitem.name))
-    console.log(currentItem[0].quantity)
     if(currentItem.length != 0 && currentItem[0].quantity >= 2){
       currentItem[0].quantity -= 1
-      console.log(this.itemsInCart)
     }
     else if(currentItem.length != 0 && currentItem[0].quantity == 1){
       this.itemsInCart = this.itemsInCart.filter(item => (item.name != menuitem.name))
-      console.log(this.itemsInCart)
     }
+    this.dashboardService.setItemsInCart(this.itemsInCart)
   }
 }

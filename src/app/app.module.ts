@@ -21,6 +21,10 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarModule, ButtonsModule, IconsModule } from 'angular-bootstrap-md';
 import { SearchFilterPipe } from './search-filter.pipe'
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { LocationsComponent } from './locations/locations.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -30,7 +34,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MenuComponent,
     HeaderComponent,
     FooterComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    LocationsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     NavbarModule,
     ButtonsModule,
     IconsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule,
+    MatBadgeModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

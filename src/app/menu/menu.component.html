@@ -1,4 +1,4 @@
-<div class="menu-content">
+<div class="menu-content noSelect">
 <div id="sect1" class="menu-header">
     OUR MENU
 </div>
@@ -29,15 +29,15 @@
               <div class="item-description">{{menuitem.description}}</div>
             </div>
             <div class="quantity-input-icon">  
-              <span class="material-icons" (click)="decrementQuantity(menuitem)">
+              <i class="material-icons noSelect" (click)="decrementQuantity(menuitem)">
               remove
-              </span>
+              </i>
               <!-- <span *ngIf="itemsInCart.length > 0">{{itemsInCart | searchFilter : menuitem}}</span>
               <span *ngIf="itemsInCart.length == 0">0</span> -->
               {{itemsInCart | searchFilter : menuitem}}
-              <span class="material-icons" (click)="incrementQuantity(menuitem)">
+              <i class="material-icons noSelect" (click)="incrementQuantity(menuitem)">
                 add
-              </span>
+              </i>
             </div>
           </mat-card>
         </div>

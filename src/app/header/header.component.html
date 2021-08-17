@@ -10,7 +10,20 @@
           routerLinkActive #rla="routerLinkActive"
           [active]="rla.isActive">{{link.label}}      
           </a>
-          <a mat-tab-link class="shopping-cart-icon"><span class="iconify" data-icon="ant-design:shopping-cart-outlined"></span></a>
+          <div mat-tab-link class="shopping-cart-icon" >
+            <span #triggerBtn [matMenuTriggerFor]="cartList" matBadge="{{numberOfItemsIncart}}" matBadgeColor="warn" class="material-icons">
+              shopping_cart
+              </span>            
+            <mat-menu #cartList="matMenu" yPosition="below" xPosition="after" [overlapTrigger]="false" class="product-cart-menu" (click)="$event.stopPropagation()">
+              <div *ngFor="let item of itemsInCart">
+                <div>{{item.name}}</div>
+                <div>{{item.quantity}}</div>
+                <div mat-button class="checkout-button" >Proceed to Checkout</div>
+              </div>
+            </mat-menu>
+          </div>
           </nav>
       </div>
-  </div> 
+      <!-- <div #tooltip="matTooltip" matTooltip="Info about the action"> Manual Tooltip </div> -->
+</div>
+

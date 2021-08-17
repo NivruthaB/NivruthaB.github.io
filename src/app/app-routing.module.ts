@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { AppComponent } from './app.component';
+import { LocationsComponent } from './locations/locations.component';
 import { MenuComponent } from './menu/menu.component';
 
 const routes: Routes = [
   {path :'home', component:AboutMeComponent},
   {path : 'menu', component:MenuComponent},
+  {path : 'locations', component:LocationsComponent},
   {path : '', redirectTo:'home', pathMatch:'full'}
 ];
 

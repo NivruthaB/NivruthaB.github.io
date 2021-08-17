@@ -17,9 +17,9 @@
             <mat-menu #cartList="matMenu" yPosition="below" xPosition="after" [overlapTrigger]="false" class="product-cart-menu" (click)="$event.stopPropagation()">
               <div *ngFor="let item of itemsInCart">
                 <div>{{item.name}}</div>
-                <div>{{item.quantity}}</div>
-                <div mat-button class="checkout-button" >Proceed to Checkout</div>
+                <div>{{item.quantity}}</div>                
               </div>
+              <div mat-button class="checkout-button">PROCEED TO CHECKOUT</div>
             </mat-menu>
           </div>
           </nav>

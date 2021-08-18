@@ -25,19 +25,23 @@
         <div *ngFor="let menuitem of element.value ; let index = index;" class="accordian-item-content">
           <mat-card class="item-card">
             <div>
+              <img *ngIf="menuitem.image != undefined" [src]="menuitem.image" width="120px" height="120px">              
+              <div class="quantity-input-icon">               
+                <i class="material-icons noSelect" (click)="decrementQuantity(menuitem)">
+                remove
+                </i>
+                {{itemsInCart | searchFilter : menuitem}}
+                <i class="material-icons noSelect" (click)="incrementQuantity(menuitem)">
+                  add
+                </i>
+              </div>
+            </div>            
+            <div class="menu-item-content">
               <div class="item-header">{{menuitem.name}}</div>
-              <div class="item-description">{{menuitem.description}}</div>
+              <div class="item-description">{{menuitem.description}}</div>  
             </div>
-            <div class="quantity-input-icon">  
-              <i class="material-icons noSelect" (click)="decrementQuantity(menuitem)">
-              remove
-              </i>
-              <!-- <span *ngIf="itemsInCart.length > 0">{{itemsInCart | searchFilter : menuitem}}</span>
-              <span *ngIf="itemsInCart.length == 0">0</span> -->
-              {{itemsInCart | searchFilter : menuitem}}
-              <i class="material-icons noSelect" (click)="incrementQuantity(menuitem)">
-                add
-              </i>
+            <div>
+              <div class="item-header">{{menuitem.price}}$</div>
             </div>
           </mat-card>
         </div>

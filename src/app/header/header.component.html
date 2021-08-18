@@ -14,12 +14,30 @@
             <span #triggerBtn [matMenuTriggerFor]="cartList" matBadge="{{numberOfItemsIncart}}" matBadgeColor="warn" class="material-icons">
               shopping_cart
               </span>            
-            <mat-menu #cartList="matMenu" yPosition="below" xPosition="after" [overlapTrigger]="false" class="product-cart-menu" (click)="$event.stopPropagation()">
-              <div *ngFor="let item of itemsInCart">
-                <div>{{item.name}}</div>
-                <div>{{item.quantity}}</div>                
+            <mat-menu  #cartList="matMenu" yPosition="below" xPosition="after" [overlapTrigger]="false" class="product-cart-menu" (click)="$event.stopPropagation()">
+              <div *ngIf="itemsInCart != undefined && itemsInCart != null && itemsInCart.length>0" class="product-cart-close">                
+                <span class="material-icons" (click)="closeMenu()">
+                  close
+                </span>
               </div>
-              <div mat-button class="checkout-button">PROCEED TO CHECKOUT</div>
+              <div *ngFor="let item of itemsInCart" class="product-cart-content">
+                <img class="item" [src]="item.image" width="50px" height="60px">              
+                <div class="item item-header">
+                  <div>{{item.name}}</div>
+                  <div>x {{item.quantity}}</div>
+                </div>
+                <!-- <div class="item"></div>                 -->
+              </div>
+              <div *ngIf="itemsInCart != undefined && itemsInCart != null && itemsInCart.length>0" class="product-cart-value">
+                <div>TOTAL</div>
+                <div>{{productCartValue}}$</div>
+              </div>
+              <div *ngIf="itemsInCart != undefined && itemsInCart != null && itemsInCart.length>0" class="product-cart-checkout">
+                <div mat-button class="checkout-button">PROCEED TO CHECKOUT</div>
+              </div> 
+              <div *ngIf="itemsInCart == undefined || itemsInCart == null || itemsInCart.length==0" class="center item-header">
+                Your cart is empty!
+              </div>             
             </mat-menu>
           </div>
           </nav>

@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   activeLinkIndex = -1; 
   itemsInCart : any;
   numberOfItemsIncart : number = 0
+  productCartValue : number = 0
   @ViewChild(MatMenuTrigger) triggerBtn: MatMenuTrigger | undefined;
   
   constructor(private http : HttpClient, private router: Router, private dialog: MatDialog, private dashboardService : DashboardServiceService){
@@ -49,11 +50,15 @@ export class HeaderComponent implements OnInit {
       this.triggerBtn?.openMenu()
       this.itemsInCart = this.dashboardService.itemsInCart
       this.numberOfItemsIncart = 0
-      this.itemsInCart.forEach((element:any) => {this.numberOfItemsIncart += element.quantity});
+      this.productCartValue = 0
+      this.itemsInCart.forEach((element:any) => {this.numberOfItemsIncart += element.quantity 
+      this.productCartValue += element.quantity*element.price});
+      console.log(this.productCartValue)
     });    
   }
-  openDialog() {
-    
+  
+  closeMenu() {
+    this.triggerBtn?.closeMenu()
   }
 
 

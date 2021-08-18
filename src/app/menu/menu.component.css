@@ -50,7 +50,7 @@
     display: flex;
     align-items: stretch;
     width: 300px;
-    height: 150px;
+    height: 200px;
     background-color: #e5e5e5;
   }
 
@@ -73,6 +73,11 @@
     border-radius: 15px;
     border-color: #E78200;
     border: solid 1px;
+    margin-top: 15px;
+  }
+
+  .menu-item-content{
+    margin-left: 15px;
   }
 
   .example-accordion-item-header,
@@ -163,11 +168,4 @@ h1{
     background-color: white !important;
   }
 
-  .noSelect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
+
